@@ -33,7 +33,7 @@ To get the code..
   ```
 2. Move to the folder and install requirements
   ```bash
-  cd D-Blog
+  cd Blog
   pip install -r requirements.txt
   ```
 3. Exporting Configurations
