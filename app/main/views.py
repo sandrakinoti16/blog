@@ -2,13 +2,13 @@ from flask import render_template,redirect,url_for,abort,request,flash
 from app.main import main
 from app.models import User,Blog,Comment,Subscriber
 from .forms import UpdateProfile,CreateBlog
-from .. import db
+from .. import db,photos
 from app.requests import get_quotes
 from flask_login import login_required,current_user
 from ..email import mail_message
 import secrets
 import os
-from PIL import Image
+
 
 @main.route('/')
 def index():
@@ -17,17 +17,12 @@ def index():
     blogs = Blog.query.order_by(Blog.posted.desc()).paginate(page = page, per_page = 3)
     return render_template('index.html', quote = quotes,blogs=blogs)
 def save_picture(form_picture):
-    random_hex = secrets.token_hex(8)
-    _, f_ext = os.path.splitext(form_picture.filename)
-    picture_filename = random_hex + f_ext
-    picture_path = os.path.join('app/static/photos', picture_filename)
-    
-    output_size = (200, 200)
-    i = Image.open(form_picture)
-    i.thumbnail(output_size)
-    i.save(picture_path)
-    return picture_filename
-
+    if 'photo' in request.files:
+        filename = photos.save(request.files['photo'])
+        path = f'photos/{filename}'
+        blog.picture_path = path
+        db.session.commit()
+    return form_picture
 @main.route('/profile',methods = ['POST','GET'])
 @login_required
 def profile():
