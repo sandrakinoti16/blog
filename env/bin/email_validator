@@ -1,4 +1,4 @@
-#!/home/sandra/Desktop/blog/env/bin/python3
+#!/home/sandra/Desktop/blog/env/bin/python
 # -*- coding: utf-8 -*-
 import re
 import sys
