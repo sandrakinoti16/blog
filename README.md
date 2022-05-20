@@ -14,9 +14,9 @@ This  is a flask application that allows writers to post blogs, edit and delete 
 * A user sees random quotes on the site
 * A writer can create a blog from the application and update or delete blogs they have created.
 
-<img src="https://raw.githubusercontent.com/Owiti-Charles/D-Blog/master/app/static/photos/homepage.png" width="900px" height="440px">
+
 <img src="https://raw.githubusercontent.com/Owiti-Charles/D-Blog/master/app/static/photos/profile.png" width="900px" height="440px">
-<img src="https://raw.githubusercontent.com/Owiti-Charles/D-Blog/master/app/static/photos/comment.png" width="900px" height="440px">
+
 
 ## BDD
 | Behaviour | Input | Output |
