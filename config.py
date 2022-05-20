@@ -4,6 +4,7 @@ load_dotenv()
 class Config:
     SECRET_KEY = os.environ.get('SECRET_KEY')
     SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://sandra:12345@localhost/blog'
+    # app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///site.db'
     SQLALCHEMY_TRACK_MODIFICATIONS=True
     MAIL_SERVER = 'smtp.gmail.com'
     MAIL_PORT = 587
@@ -31,6 +32,8 @@ config_options = {
 'development':DevConfig,
 'production':ProdConfig
 }
+# class ProdConfig(Config):
+#     SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_URL")
 
 
 
